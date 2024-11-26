@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class CurrencyConverterView extends Application {
     private TextField amountField;
-    private TextField resultField;
+    private Label result;
     private ComboBox<String> fromCurrencyBox;
     private ComboBox<String> toCurrencyBox;
     private Button convertButton;
@@ -29,8 +29,7 @@ public class CurrencyConverterView extends Application {
         toCurrencyBox = new ComboBox<>();
         convertButton = new Button("Convert");
         Label resultLabel = new Label("Result:");
-        resultField = new TextField();
-        resultField.setEditable(false);
+        result = new Label();
 
         grid.add(amountLabel, 0, 0);
         grid.add(amountField, 1, 0);
@@ -40,7 +39,7 @@ public class CurrencyConverterView extends Application {
         grid.add(toCurrencyBox, 1, 2);
         grid.add(convertButton, 1, 3);
         grid.add(resultLabel, 0, 4);
-        grid.add(resultField, 1, 4);
+        grid.add(result, 1, 4);
 
         Scene scene = new Scene(grid, 300, 250);
         scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
@@ -52,8 +51,8 @@ public class CurrencyConverterView extends Application {
         return amountField;
     }
 
-    public TextField getResultField() {
-        return resultField;
+    public Label getResultField() {
+        return result;
     }
 
     public ComboBox<String> getFromCurrencyBox() {
